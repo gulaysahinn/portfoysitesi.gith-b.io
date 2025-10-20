@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -51,7 +51,7 @@
           src="resim/profil.jpeg"
           alt="Profil Fotoğrafı"
         />
-        <h2 style="border-left: none">Gülay ŞAHİN</h2>
+        <h2 style="border-left: none">Gülay ŞAHİNNNNN</h2>
         <h3 class="typing-effect">Yazılım Geliştirici : Web & Mobil</h3>
         <div class="social-icons">
           <a href="https://github.com/gulaysahinn" target="_blank"
@@ -291,95 +291,9 @@
       <p>© 2025 | Tüm Hakları Saklıdır</p>
     </footer>
 
-    <script>
-      // === TEMA DEĞİŞTİRME KODU ===
-      function toggleTheme() {
-        document.body.classList.toggle("light-mode");
-        const themeIcon = document.querySelector(".theme-toggle i");
-        if (document.body.classList.contains("light-mode")) {
-          themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.add("fa-moon");
-        } else {
-          themeIcon.classList.remove("fa-moon");
-          themeIcon.classList.add("fa-sun");
-        }
-      }
-
-      // === MOBİL MENÜ KODU ===
-      const menu = document.getElementById("navbar-menu");
-      const menuToggle = document.getElementById("mobile-menu");
-
-      menuToggle.addEventListener("click", () => {
-        menu.classList.toggle("active");
-        menuToggle.classList.toggle("is-active");
-      });
-
-      // === KAYDIRMA ANİMASYONU KODU ===
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("show");
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      const hiddenElements = document.querySelectorAll(".hidden");
-      hiddenElements.forEach((el) => observer.observe(el));
-    </script>
-
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
 
-    <script>
-      // === YENİ: FIREBASE FORM KAYDETME ===
-
-      // 1. Firebase Proje Bilgilerinizi Buraya Yapıştırın
-      //    (2. Adımda Firebase'den aldığınız kod)
-      const firebaseConfig = {
-        apiKey: "AIzaSyDbOlqUqWp8rxXNm-eZ5M2_-d7u4XeUzCc",
-        authDomain: "gulay-sahin-portfolio.firebaseapp.com",
-        projectId: "gulay-sahin-portfolio",
-        storageBucket: "gulay-sahin-portfolio.firebasestorage.app",
-        messagingSenderId: "237841325617",
-        appId: "1:237841325617:web:20317d7081ccc7b487ff10",
-      };
-
-      // 2. Firebase'i başlat
-      firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore();
-
-      // 3. Formu yakala (Formunuza id="contact-form" ekleyeceğiz)
-      const contactForm = document.getElementById("contact-form");
-
-      contactForm.addEventListener("submit", (e) => {
-        e.preventDefault(); // Formun sayfayı yenilemesini engelle
-
-        // 4. Formdaki verileri al
-        const name = contactForm.querySelector("#name").value;
-        const email = contactForm.querySelector("#email").value;
-        const message = contactForm.querySelector("#message").value;
-        const timestamp = new Date();
-
-        // 5. Veriyi "mesajlar" koleksiyonuna gönder
-        db.collection("mesajlar")
-          .add({
-            ad: name,
-            email: email,
-            mesaj: message,
-            tarih: timestamp,
-          })
-          .then(() => {
-            alert("Mesajınız başarıyla gönderildi!");
-            contactForm.reset(); // Formu temizle
-          })
-          .catch((error) => {
-            console.error("Hata:", error);
-            alert("Bir hata oluştu. Lütfen tekrar deneyin.");
-          });
-      });
-    </script>
+    <script src="./script.js" defer></script>
   </body>
 </html>
