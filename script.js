@@ -16,18 +16,30 @@ function toggleTheme() {
 }
 
 // === KAYDIRMA ANİMASYONU KODU ===
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
-const hiddenElements = document.querySelectorAll(".hidden");
-hiddenElements.forEach((el) => observer.observe(el));
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Scroll animasyonu JS yüklendi!");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log("Görünüyor:", entry.target);
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    },
+    {
+      threshold: 0.2, // %20 görünür olunca tetikle
+      rootMargin: "0px 0px -50px 0px", // biraz erken başlat
+    }
+  );
+
+  const hiddenElements = document.querySelectorAll(".hidden");
+  console.log("Gizli eleman sayısı:", hiddenElements.length);
+  hiddenElements.forEach((el) => observer.observe(el));
+});
 
 // === MOBİL MENÜ KODU ===
 const menu = document.getElementById("navbar-menu");
