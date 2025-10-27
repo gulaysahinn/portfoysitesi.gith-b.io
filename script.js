@@ -50,7 +50,7 @@ const firebaseConfig = {
   projectId: "gulay-sahin-portfolio",
   storageBucket: "gulay-sahin-portfolio.firebasestorage.app",
   messagingSenderId: "237841325617",
-  appId: "1:237841325617:web:20317d7081ccc7b487ff10"
+  appId: "1:237841325617:web:20317d7081ccc7b487ff10",
 };
 
 // 2. Firebase'i başlat
@@ -80,8 +80,14 @@ if (contactForm) {
         tarih: timestamp,
       })
       .then(() => {
-        alert("Mesajınız başarıyla gönderildi!");
+        const successMsg = document.getElementById("form-success");
+        successMsg.style.display = "block"; // Mesajı göster
         contactForm.reset(); // Formu temizle
+
+        // 2 saniye sonra mesajı tekrar gizle
+        setTimeout(() => {
+          successMsg.style.display = "none";
+        }, 2000);
       })
       .catch((error) => {
         console.error("Hata:", error);

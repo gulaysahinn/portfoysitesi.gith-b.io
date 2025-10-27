@@ -18,6 +18,7 @@
     />
 
     <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
   </head>
   <body>
     <nav class="navbar">
@@ -148,7 +149,7 @@
         </div>
 
         <div class="project-card hidden">
-          <img src="./resim/USBBlocker.png" alt="USB Blocker Projesi" />
+          <img src="resim/usbBlocker.png" alt="USB Blocker Projesi" />
           <div class="content">
             <div class="project-header">
               <h3>USB Blocker</h3>
@@ -284,6 +285,9 @@
         </div>
 
         <button type="submit">Gönder</button>
+        <p id="form-success" style="display: none; color: #e6a888; margin-top: 10px;">
+  Mesajınız başarıyla gönderildi!
+</p>
       </form>
     </section>
 
@@ -294,6 +298,6 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
 
-    <script src="./script.js" defer></script>
+    
   </body>
 </html>
